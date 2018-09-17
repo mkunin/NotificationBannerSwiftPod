@@ -283,6 +283,12 @@ public class BaseNotificationBanner: UIView {
             return
         }
         
+        if statusBarShouldBeShown() {
+            appWindow.windowLevel = UIWindowLevelNormal
+        } else {
+            appWindow.windowLevel = UIWindowLevelStatusBar + 1
+        }
+        
         if bannerPositionFrame == nil {
             self.bannerPosition = bannerPosition
             createBannerConstraints(for: bannerPosition)
@@ -307,16 +313,8 @@ public class BaseNotificationBanner: UIView {
             
             if let parentViewController = parentViewController {
                 parentViewController.view.addSubview(self)
-                if statusBarShouldBeShown() {
-                    appWindow.windowLevel = UIWindowLevelNormal
-                }
             } else {
                 appWindow.addSubview(self)
-                if statusBarShouldBeShown() && !(parentViewController == nil && bannerPosition == .top) {
-                    appWindow.windowLevel = UIWindowLevelNormal
-                } else {
-                    appWindow.windowLevel = UIWindowLevelStatusBar + 1
-                }
             }
             
             NotificationCenter.default.post(name: NotificationBanner.BannerWillAppear, object: self, userInfo: notificationUserInfo)
