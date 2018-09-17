@@ -1,0 +1,12 @@
+use_frameworks!
+
+target 'NotificationBannerSwiftPod_Example' do
+  pod 'NotificationBannerSwiftPod', :path => '../'
+  pod 'Reveal-iOS-SDK', :configurations => ['Debug']
+
+  target 'NotificationBannerSwiftPod_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

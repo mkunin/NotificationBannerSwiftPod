@@ -1,0 +1,6 @@
+framework module NotificationBannerSwiftPod {
+  umbrella header "NotificationBannerSwiftPod-umbrella.h"
+
+  export *
+  module * { export * }
+}
