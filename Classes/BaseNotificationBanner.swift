@@ -414,7 +414,7 @@ public class BaseNotificationBanner: UIView {
         the navigation bar
      */
     private func statusBarShouldBeShown() -> Bool {
-        return true
+        return false
     }
     
     /** 
