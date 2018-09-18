@@ -1,6 +1,6 @@
 PODS:
   - MarqueeLabel/Swift (3.1.6)
-  - NotificationBannerSwiftPod (0.1.2):
+  - NotificationBannerSwiftPod (0.1.3):
     - MarqueeLabel/Swift
     - SnapKit (~> 4.0)
   - Reveal-iOS-SDK (1.6.2)
@@ -16,7 +16,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   MarqueeLabel: 0c41f08ef5773e29c0f71064a8fa788a2fd8b365
-  NotificationBannerSwiftPod: 7e121bd308e1528b177e2fdc857530f58be01c6d
+  NotificationBannerSwiftPod: 90ef63dd6ffc33f2d8946c369680b419b6385071
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
