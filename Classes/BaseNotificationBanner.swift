@@ -414,7 +414,15 @@ public class BaseNotificationBanner: UIView {
         the navigation bar
      */
     private func statusBarShouldBeShown() -> Bool {
-        return false
+        if bannerPosition == .top {
+            return false
+        }
+        for banner in bannerQueue.bannerList {
+            if banner.bannerPosition == .top {
+                return false
+            }
+        }
+        return true
     }
     
     /** 

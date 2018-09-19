@@ -36,6 +36,12 @@ open class NotificationBannerQueue: NSObject {
         return banners.count
     }
     
+    public var bannerList: [BaseNotificationBanner] {
+        get {
+            return banners
+        }
+    }
+    
     /**
         Adds a banner to the queue
         -parameter banner: The notification banner to add to the queue
