@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name             = 'NotificationBannerSwiftPod'
-s.version          = '0.1.4'
+s.version          = '0.1.5'
 s.summary          = 'The easiest way to display in app notification banners in iOS.'
 
 s.description      = <<-DESC

@@ -283,12 +283,6 @@ public class BaseNotificationBanner: UIView {
             return
         }
         
-        if statusBarShouldBeShown() {
-            appWindow.windowLevel = UIWindowLevelNormal
-        } else {
-            appWindow.windowLevel = UIWindowLevelStatusBar + 1
-        }
-        
         if bannerPositionFrame == nil {
             self.bannerPosition = bannerPosition
             createBannerConstraints(for: bannerPosition)
@@ -310,6 +304,12 @@ public class BaseNotificationBanner: UIView {
             bannerQueue.addBanner(self, queuePosition: queuePosition, suspend)
         } else {
             self.frame = bannerPositionFrame.startFrame
+            
+            if statusBarShouldBeShown() {
+                appWindow.windowLevel = UIWindowLevelNormal
+            } else {
+                appWindow.windowLevel = UIWindowLevelStatusBar + 1
+            }
             
             if let parentViewController = parentViewController {
                 parentViewController.view.addSubview(self)
@@ -414,9 +414,6 @@ public class BaseNotificationBanner: UIView {
         the navigation bar
      */
     private func statusBarShouldBeShown() -> Bool {
-        if bannerPosition == .top {
-            return false
-        }
         for banner in bannerQueue.bannerList {
             if banner.bannerPosition == .top {
                 return false
