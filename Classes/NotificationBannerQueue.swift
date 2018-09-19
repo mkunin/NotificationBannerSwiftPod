@@ -58,6 +58,8 @@ open class NotificationBannerQueue: NSObject {
             }
             
         } else {
+            banners.insert(banner, at: 0)
+            
             banner.show(placeOnQueue: false, bannerPosition: banner.bannerPosition)
             
             if let firstBanner = banners.first {
@@ -65,8 +67,6 @@ open class NotificationBannerQueue: NSObject {
                     firstBanner.suspend()
                 }
             }
-            
-            banners.insert(banner, at: 0)
         }
         
     }
