@@ -215,7 +215,7 @@ public class BaseNotificationBanner: UIView {
     }
     
     /**
-        Dismisses the NotificationBanner and shows the next one if there is one to show on the queue
+        Dismisses the NotificationBanner
     */
     @objc public func dismiss() {
         
@@ -239,8 +239,8 @@ public class BaseNotificationBanner: UIView {
             NotificationCenter.default.post(name: NotificationBanner.BannerDidDisappear, object: self, userInfo: self.notificationUserInfo)
             self.delegate?.notificationBannerDidDisappear(self)
             
-            self.bannerQueue.showNext(callback: { (isEmpty) in
-                if isEmpty || self.statusBarShouldBeShown() {
+            self.bannerQueue.removeBanner(self, callback: { (queueIsEmptyAfterAttemptedRemoval) in
+                if queueIsEmptyAfterAttemptedRemoval || self.statusBarShouldBeShown() {
                     self.appWindow.windowLevel = UIWindowLevelNormal
                 }
             })

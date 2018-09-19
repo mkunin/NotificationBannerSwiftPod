@@ -71,6 +71,20 @@ open class NotificationBannerQueue: NSObject {
         
     }
     
+    func removeBanner(_ bannerToRemove: BaseNotificationBanner, callback: ((_ queueIsEmptyAfterAttemptedRemoval: Bool) -> Void)) {
+        if !banners.isEmpty {
+            var i = 0
+            for banner in banners {
+                if banner == bannerToRemove {
+                    banners.remove(at: i)
+                    break
+                }
+                i += 1
+            }
+        }
+        callback(banners.isEmpty)
+    }
+    
     /**
         Shows the next notificaiton banner on the queue if one exists
         -parameter callback: The closure to execute after a banner is shown or when the queue is empty
